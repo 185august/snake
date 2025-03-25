@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/utility/styles.css">
 </head>
 
-<body>
-    <table border="1" id="app"></table>
+<body onload="initGame()">
+    <div id="app"></div>
 
 
 
-    <script src="js/model.js"></script>
-    <script src="js/views/snakeView.js"></script>
-    <script src="js/views/mainView.js"></script>
-    <script src="js/snakeController.js"></script>
+    <script src="/utility/model.js"></script>
+    <script src="/controller/foodController.js"></script>
+    <script src="/controller/snakeController.js"></script>
+    <script src="/views/mainView.js"></script>
+    <script src="/views/snakeView.js"></script>
 </body>
 
 </html>

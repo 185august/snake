@@ -1,0 +1,20 @@
+td {
+  width: 20px;
+  height: 20px;
+  background-color: aliceblue;
+  border: 1px, black, solid;
+  gap: 0px;
+}
+
+td.snake {
+  width: 3px;
+  height: 3px;
+  background-color: blueviolet;
+  border-radius: 50%;
+}
+
+td.food {
+  width: 1px;
+  height: 1px;
+  background-color: aqua;
+}

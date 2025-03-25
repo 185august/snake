@@ -1,5 +1,0 @@
-const model = {
-    snakeBoard: [
-
-    ]
-}

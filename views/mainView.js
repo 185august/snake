@@ -1,4 +1,3 @@
-updateView();
 function updateView() {
     let html = `
     ${snakeView()}
