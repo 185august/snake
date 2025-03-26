@@ -6,7 +6,7 @@ const model = {
     data: {
         snakeBoard: [],
         snakePoistion: [],
-        currentFoodPosition: {},
+        foodPosition: [],
     }
 }
 

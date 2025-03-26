@@ -26,9 +26,6 @@ function makeArray() {
         let column = [];
         for (let col = 0; col < 30; col++) {
             column.push({ isSnake: false, isFood: false })
-            if (i == model.data.currentFoodPosition.posX && col == model.data.currentFoodPosition.posY) {
-                console.log('does this ever run')
-            }
         }
         model.data.snakeBoard.push(column);
     }
@@ -37,7 +34,7 @@ function makeArray() {
 
 function renderSnakeAndFood() {
     makeArray();
-    model.data.snakeBoard[model.data.currentFoodPosition.posX][model.data.currentFoodPosition.posY].isFood = true;
+    model.data.snakeBoard[model.data.foodPosition[0].posX][model.data.foodPosition[0].posY].isFood = true;
     for (snake of model.data.snakePoistion) {
         console.log(snake.posX, snake.posY)
         if (snake.posX === 31) {

@@ -16,6 +16,13 @@ function moveSnake() {
     setInterval(() => {
         renderSnakeAndFood();
         moveSnakeIncurrentDirection();
+        if (JSON.stringify(model.data.snakePoistion) == JSON.stringify(model.data.foodPosition)) {
+
+            console.log('does this ever run')
+            model.data.foodPosition = [];
+            spawnFood();
+            updateView();
+        }
     }, 500);
 }
 
