@@ -8,38 +8,38 @@ function initGame() {
 
 function spawnSnake() {
     const { posX, posY } = randomXYpostion();
-    model.data.snakePoistion.push({ posX: posX, posY: posY })
-
+    model.data.snakePosition.head = { posX: posX, posY: posY }
 }
 
 function moveSnake() {
     setInterval(() => {
         renderSnakeAndFood();
-        moveSnakeIncurrentDirection();
-        if (JSON.stringify(model.data.snakePoistion) == JSON.stringify(model.data.foodPosition)) {
+        moveSnakeHead();
 
-            console.log('does this ever run')
+        if (JSON.stringify(model.data.snakePosition.head) == JSON.stringify(model.data.foodPosition)) {
             model.data.foodPosition = [];
             spawnFood();
             updateView();
         }
+
     }, 500);
 }
+function moveSnakeTail() { }
 
-function moveSnakeIncurrentDirection() {
-    const snake = model.data.snakePoistion
+function moveSnakeHead() {
+    const snakes = model.data.snakePosition
     switch (model.input.currentDirection) {
         case 'left':
-            snake[0].posY = snake[0].posY - 1
+            snakes.head.posY--
             break;
         case 'right':
-            snake[0].posY = snake[0].posY + 1
+            snakes.head.posY++
             break;
         case 'up':
-            snake[0].posX = snake[0].posX - 1
+            snakes.head.posX--
             break;
         case 'down':
-            snake[0].posX = snake[0].posX + 1
+            snakes.head.posX++
             break;
     }
 }
@@ -50,5 +50,4 @@ function snakeEat() {
 
 function changeDirection(direction) {
     model.input.currentDirection = direction;
-    console.log(model.currentDirection)
 }

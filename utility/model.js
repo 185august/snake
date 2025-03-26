@@ -5,8 +5,12 @@ const model = {
     },
     data: {
         snakeBoard: [],
-        snakePoistion: [],
-        foodPosition: [],
+        snakePosition: {
+            head: null,
+            body: [],
+            tail: null
+        },
+        foodPosition: {},
     }
 }
 
