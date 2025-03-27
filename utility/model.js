@@ -1,6 +1,7 @@
 const model = {
     input: {
         userSetDirection: 'right',
+        keyPressed: {},
         isFoodEaten: false
     },
     data: {
@@ -24,6 +25,8 @@ function randomXYpostion() {
 function getCssClass(col) {
     if (col.isSnakeHead == true) {
         return 'snake-head';
+    } else if (col.isSnakeBody == true) {
+        return 'snake-body';
     }
     else if (col.isSnakeTail == true) {
         return 'snake-tail'
@@ -40,3 +43,10 @@ function spawnObject(object) {
     object = { posX: posX, posY: posY }
     return object
 }
+document.addEventListener('keydown', (event) => {
+    model.input.keyPressed[event.key] = true;
+});
+
+document.addEventListener('keyup', (event) => {
+    model.input.keyPressed[event.key] = false;
+});

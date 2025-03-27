@@ -20,6 +20,13 @@ td.snake-tail {
   border-radius: 50%;
 }
 
+td.snake-body {
+  width: 3px;
+  height: 3px;
+  background-color: green;
+  border-radius: 50%;
+}
+
 td.food {
   width: 1px;
   height: 1px;

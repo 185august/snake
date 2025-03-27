@@ -66,8 +66,23 @@ function checkIfInBounds(object) {
     } else if (object.tail.posY < 0) {
         object.tail.posY = 30;
     }
+    object.body.forEach(body => {
+        if (body.posX > 30) {
+            body.posX = 0;
+        } else if (body.posX < 0) {
+            body.posX = 30;
+        }
+        if (body.posY > 30) {
+            body.posY = 0;
+        } else if (body.posY < 0) {
+            body.posY = 30;
+        }
+    });
 
     model.data.snakeBoard[object.head.posX][object.head.posY].isSnakeHead = true;
+    object.body.forEach(body => {
+        model.data.snakeBoard[body.posX][body.posY].isSnakeBody = true;
+    });
     model.data.snakeBoard[object.tail.posX][object.tail.posY].isSnakeTail = true;
 
 }
