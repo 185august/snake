@@ -36,21 +36,38 @@ function makeArray() {
 function renderSnakeAndFood() {
     makeArray();
     model.data.snakeBoard[model.data.foodPosition.posX][model.data.foodPosition.posY].isFood = true;
-    const snake = model.data.snakePosition;
-    //to check if snake is out of bounds
-    if (snake.head.posX > 30) {
-        snake.head.posX = 0;
-        model.data.snakeBoard[snake.head.posX][snake.head.posY].isSnake = true;
-    } else if (snake.head.posX < 0) {
-        snake.head.posX = 30;
-        model.data.snakeBoard[snake.head.posX][snake.head.posY].isSnake = true;
-    } else if (snake.head.posY > 30) {
-        snake.head.posY = 0;
-        model.data.snakeBoard[snake.head.posX][snake.head.posY].isSnake = true;
-    } else if (snake.head.posY < 0) {
-        snake.head.posY = 30;
-        model.data.snakeBoard[snake.head.posX][snake.head.posY].isSnake = true;
-    } else
-        model.data.snakeBoard[snake.head.posX][snake.head.posY].isSnake = true;
+    checkIfInBounds(model.data.snakePosition)
     updateView();
+
+}
+
+function checkIfInBounds(object) {
+
+    if (object.head.posX > 30) {
+        object.head.posX = 0;
+    } else if (object.head.posX < 0) {
+        object.head.posX = 30;
+    }
+
+    if (object.head.posY > 30) {
+        object.head.posY = 0;
+    } else if (object.head.posY < 0) {
+        object.head.posY = 30;
+    }
+
+    if (object.tail.posX > 30) {
+        object.tail.posX = 0;
+    } else if (object.tail.posX < 0) {
+        object.tail.posX = 30;
+    }
+
+    if (object.tail.posY > 30) {
+        object.tail.posY = 0;
+    } else if (object.tail.posY < 0) {
+        object.tail.posY = 30;
+    }
+
+    model.data.snakeBoard[object.head.posX][object.head.posY].isSnakeHead = true;
+    model.data.snakeBoard[object.tail.posX][object.tail.posY].isSnakeTail = true;
+
 }

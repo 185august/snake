@@ -6,10 +6,17 @@ td {
   gap: 0px;
 }
 
-td.snake {
+td.snake-head {
   width: 3px;
   height: 3px;
   background-color: blueviolet;
+  border-radius: 50%;
+}
+
+td.snake-tail {
+  width: 3px;
+  height: 3px;
+  background-color: blue;
   border-radius: 50%;
 }
 

@@ -1,11 +1,12 @@
 const model = {
     input: {
-        currentDirection: 'right',
+        userSetDirection: 'right',
         isFoodEaten: false
     },
     data: {
         snakeBoard: [],
         snakePosition: {
+            snakeCurrentDirection: 'right',
             head: null,
             body: [],
             tail: null
@@ -21,12 +22,21 @@ function randomXYpostion() {
 }
 
 function getCssClass(col) {
-    if (col.isSnake == true) {
-        return 'snake';
+    if (col.isSnakeHead == true) {
+        return 'snake-head';
+    }
+    else if (col.isSnakeTail == true) {
+        return 'snake-tail'
     } else if (col.isFood == true) {
         return 'food';
     }
     else {
         return 'emptySquare'
     }
+}
+
+function spawnObject(object) {
+    const { posX, posY } = randomXYpostion();
+    object = { posX: posX, posY: posY }
+    return object
 }
