@@ -36,7 +36,7 @@ function makeArray() {
 function renderSnakeAndFood() {
     makeArray();
     model.data.snakeBoard[model.data.foodPosition.posX][model.data.foodPosition.posY].isFood = true;
-    checkIfInBounds(model.data.snakePosition)
+    checkIfInBounds(model.data.snakePosition);
     updateView();
 
 }
@@ -55,34 +55,36 @@ function checkIfInBounds(object) {
         object.head.posY = 30;
     }
 
-    if (object.tail.posX > 30) {
-        object.tail.posX = 0;
-    } else if (object.tail.posX < 0) {
-        object.tail.posX = 30;
-    }
-
-    if (object.tail.posY > 30) {
-        object.tail.posY = 0;
-    } else if (object.tail.posY < 0) {
-        object.tail.posY = 30;
-    }
-    object.body.forEach(body => {
-        if (body.posX > 30) {
-            body.posX = 0;
-        } else if (body.posX < 0) {
-            body.posX = 30;
+    if (object.tail != null) {
+        if (object.tail.posX > 30) {
+            object.tail.posX = 0;
+        } else if (object.tail.posX < 0) {
+            object.tail.posX = 30;
         }
-        if (body.posY > 30) {
-            body.posY = 0;
-        } else if (body.posY < 0) {
-            body.posY = 30;
+
+        if (object.tail.posY > 30) {
+            object.tail.posY = 0;
+        } else if (object.tail.posY < 0) {
+            object.tail.posY = 30;
+        }
+    }
+    object.body.forEach(part => {
+        if (part.posX > 30) {
+            part.posX = 0;
+        } else if (part.posX < 0) {
+            part.posX = 30;
+        }
+        if (part.posY > 30) {
+            part.posY = 0;
+        } else if (part.posY < 0) {
+            part.posY = 30;
         }
     });
 
     model.data.snakeBoard[object.head.posX][object.head.posY].isSnakeHead = true;
-    object.body.forEach(body => {
-        model.data.snakeBoard[body.posX][body.posY].isSnakeBody = true;
+    object.body.forEach(part => {
+        model.data.snakeBoard[part.posX][part.posY].isSnakeBody = true;
     });
-    model.data.snakeBoard[object.tail.posX][object.tail.posY].isSnakeTail = true;
+    if (object.tail != null) model.data.snakeBoard[object.tail.posX][object.tail.posY].isSnakeTail = true;
 
 }
